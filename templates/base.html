@@ -34,6 +34,19 @@
     {% if messages %}
         <div class="message-container"></div>
     {% endif%}
-    
+
+    {% block page_header %}
+    <!-- will act as an additional header on pages that extend this base template-->
+    {% endblock %}
+
+    {% block content %}
+    <!-- For our main page content to go-->
+    {% endblock %}
+
+    {% block postloadjs %}
+    <!-- For Javascript that we want to load at the end of the body-->
+    {% endblock %}
+
+
   </body>
 </html>
