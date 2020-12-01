@@ -4,6 +4,11 @@ from django.db import models
 Which will inherit from models.Model"""
 
 class Category(models.Model):
+
+    """To fix the spelling issue"""
+    class Meta:
+        verbose_name_plural = 'Categories'
+
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
