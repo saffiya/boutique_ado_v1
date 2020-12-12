@@ -17,7 +17,7 @@ def all_products(request):
     direction = None
 
     if request.GET:
-         if 'sort' in request.GET:
+        if 'sort' in request.GET:
             #if the reuest.get parameters do contain sort:
             #set a variable called sortkey equal to request.get.sort
             sortkey = request.GET['sort']
@@ -35,13 +35,13 @@ def all_products(request):
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
 
-         if 'category' in request.GET:
+        if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
             # to display to the user which categories they currently have selected
 
-         if 'q' in request.GET:
+        if 'q' in request.GET:
             query = request.GET['q']
             if not query:
                 messages.error(request, "You didn't enter any search criteria!")
